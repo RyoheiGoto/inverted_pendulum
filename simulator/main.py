@@ -40,7 +40,7 @@ vrep.simxGetIntegerParameter(clientID,vrep.sim_intparam_mouse_x,vrep.simx_opmode
 #res, display = vrep.simxGetUIHandle(clientID, "sensorDisplay", vrep.simx_opmode_blocking)
 
 res, JointDynamic = vrep.simxGetObjectHandle(clientID, "joint" , vrep.simx_opmode_blocking)
-res, JointPotentiometer = vrep.simxGetObjectHandle(clientID, "Potentiometer", vrep.simx_opmode_blocking)
+res, Potentiometer = vrep.simxGetObjectHandle(clientID, "Potentiometer", vrep.simx_opmode_blocking)
 
 if res != vrep.simx_return_ok:
     print 'Failed to get sensor Handler'
