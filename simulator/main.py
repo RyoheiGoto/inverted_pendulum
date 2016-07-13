@@ -26,39 +26,34 @@ else:
     
 nominalLinearVelocity = 0.3
     
-res, objs = vrep.simxGetObjects(clientID, vrep.sim_handle_all,vrep.simx_opmode_blocking)
-if res == vrep.simx_return_ok:
-    print 'Number of objects in the scene: %d' % len(objs)
-else:
-    print 'Remote API function call returned with error code: %d' % res
+res, objs = vrep.simxGetObjects(clientID, vrep.sim_handle_all,vrep.simx_opmode_oneshot_wait)
 
 time.sleep(2)
 
 startTime = time.time()
-vrep.simxGetIntegerParameter(clientID,vrep.sim_intparam_mouse_x,vrep.simx_opmode_streaming)
 
 #res, display = vrep.simxGetUIHandle(clientID, "sensorDisplay", vrep.simx_opmode_blocking)
 
-res, JointDynamic = vrep.simxGetObjectHandle(clientID, "joint" , vrep.simx_opmode_blocking)
-res, Potentiometer = vrep.simxGetObjectHandle(clientID, "Potentiometer", vrep.simx_opmode_blocking)
+res, JointDynamic = vrep.simxGetObjectHandle(clientID, "joint" , vrep.simx_opmode_oneshot_wait)
+res, Potentiometer = vrep.simxGetObjectHandle(clientID, "Potentiometer", vrep.simx_opmode_oneshot_wait)
 
 if res != vrep.simx_return_ok:
     print 'Failed to get sensor Handler'
     vrep.simxFinish(clientID)
     sys.exit('Program ended')
 	
-    #Get Potentiometer
-    pos = vrep.simxGetJointPosition(clientID, Potentiometer, vrep.simx_opmode_oneshot)
-   
-    #Decide about joint velocities:
-    s = 1.0
-    linearVelocity  = nominalLinearVelocity * s
-    
-    vrep.simxSetJointTargetVelocity(clientID, JointDynamic, linearVelocity, vrep.simx_opmode_oneshot)
-    
-    #Set pendulum Position
-    if pos <= 50:
-        vrep.simxSetJointPosition(clineID,Potentiometer, 0, vrep.simx_opmode_oneshot)
-    
-    time.sleep(0.005)
+#Get Potentiometer
+pos = vrep.simxGetJointPosition(clientID, Potentiometer, vrep.simx_opmode_oneshot)
+
+#Decide about joint velocities:
+s = 1.0
+linearVelocity  = nominalLinearVelocity * s
+
+vrep.simxSetJointTargetVelocity(clientID, JointDynamic, linearVelocity, vrep.simx_opmode_oneshot)
+
+#Set pendulum Position
+if pos <= 50:
+    vrep.simxSetJointPosition(clineID,Potentiometer, 0, vrep.simx_opmode_oneshot)
+
+time.sleep(0.005)
 
