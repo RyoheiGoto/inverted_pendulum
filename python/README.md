@@ -1,25 +1,25 @@
 Usage
 ----
 
-ì‹ÆƒtƒHƒ‹ƒ_‚ÉˆÈ‰º3‚Â‚Ìƒtƒ@ƒCƒ‹‚ğƒRƒs[‚µ‚Ü‚·B
+ä½œæ¥­ãƒ•ã‚©ãƒ«ãƒ€ã«ä»¥ä¸‹3ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
 
-ƒ‰ƒbƒp[ƒtƒ@ƒCƒ‹
+ãƒ©ãƒƒãƒ‘ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«  
 Windows: `C:\ProgramFiles(x86)\V-REP3\V-REP_PRO_EDU\programming\remoteApiBindings\python\python`  
 Ubuntu: `$HOME/V-REP3/programming/remoteApiBindings/python/python`  
-ˆÈ‰º‚Ì
+ä»¥ä¸‹ã®
 * `vrep.py`
 * `vrepConst.py`
 
-DLLƒtƒ@ƒCƒ‹
+DLLãƒ•ã‚¡ã‚¤ãƒ«  
 Windows: `C:\ProgramFiles(x86)\V-REP3\V-REP_PRO_EDU\programming\remoteApiBindings\lib\lib`  
-Ubuntu: `$HOME/V-REP3/programming\remoteApiBindings/lib/lib/'  
-ˆÈ‰º‚Ì32bit‚©64bit‚©‚Í©•ª‚ÌPython‚ÌŠÂ‹«‚É‡‚í‚¹‚Äc
+Ubuntu: `$HOME/V-REP3/programming/remoteApiBindings/lib/lib/`  
+ä»¥ä¸‹ã®32bitã‹64bitã‹ã¯è‡ªåˆ†ã®Pythonã®ç’°å¢ƒã«åˆã‚ã›ã¦â€¦
 * Windows: `remoteApi.dll`
 * Ubuntu: `remoteApi.so`
 
-ƒVƒ~ƒ…ƒŒ[ƒ^‚ğÄ¶ŒãAmain.py‚ğÀs
+ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã‚’å†ç”Ÿå¾Œã€main.pyã‚’å®Ÿè¡Œ
 
 Memo
 ----
-Potentiometer‚ÌTorque‚ğƒR[ƒh‚Å•ÏX‚·‚é‚ÆUq‚ª~‚Ü‚ç‚È‚¢
+Potentiometerã®Torqueã‚’ã‚³ãƒ¼ãƒ‰ã§å¤‰æ›´ã™ã‚‹ã¨æŒ¯å­ãŒæ­¢ã¾ã‚‰ãªã„
 
