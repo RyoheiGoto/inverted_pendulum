@@ -1,42 +1,13 @@
 # -*- coding: utf-8 -*-
 
-try:
-    import vrep
-except:
-    print '--------------------------------------------------------------'
-    print '"vrep.py" could not be imported. This means very probably that'
-    print 'either "vrep.py" or the remoteApi library could not be found.'
-    print 'Make sure both are in the same folder as this file,'
-    print 'or appropriately adjust the file "vrep.py"'
-    print '--------------------------------------------------------------'
-
+from simulator import *
 import time
 import math
-import sys
 import random
 
-random.seed()
-
-def start_simulator():
-    print 'Program started'
-    vrep.simxFinish(-1)
-    clientID = vrep.simxStart('127.0.0.1', 19999, True, False, 5000, 5)
-
-    if clientID != -1:
-        print 'Connected to remote API server'
-    else:
-        print 'Failed connecting to remote API server'
-        sys.exit('Program Ended')
-
-    return clientID
-
-def error_check(clientID, res):
-    if res != vrep.simx_return_ok:
-        print 'Failed to get sensor Handler'
-        vrep.simxFinish(clientID)
-        sys.exit('Program ended')
-
 if __name__ == '__main__':
+    random.seed()
+
     clientID = start_simulator()
 
     res, objs = vrep.simxGetObjects(clientID, vrep.sim_handle_all, vrep.simx_opmode_oneshot_wait)
@@ -60,9 +31,9 @@ if __name__ == '__main__':
         print "Servo: %lf[deg]" % math.degrees(servo_pos)
         
         #Decide about joint velocities:
-        linearVelocity  = random.random() * random.choice((-20, 20))
+        linearVelocity  = random.choice((-10, 0, 10))
         
         vrep.simxSetJointTargetVelocity(clientID, JointDynamic, linearVelocity, vrep.simx_opmode_oneshot)
         
-        time.sleep(0.001)
+        time.sleep(0.01)
 
