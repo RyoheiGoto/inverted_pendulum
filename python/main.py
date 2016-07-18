@@ -36,7 +36,7 @@ if __name__ == '__main__':
             print "Reset positions"
             vrep.simxStopSimulation(clientID, vrep.simx_opmode_oneshot_wait)
             time.sleep(1)
-            vrep.simxStartSimulation(clientID, vrep.simx_opmode_oneshot_wait)
+            wait_until_simulator_started(clientID)
         
         time.sleep(0.01)
 

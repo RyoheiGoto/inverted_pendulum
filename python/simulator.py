@@ -31,3 +31,11 @@ def error_check(clientID, res):
         vrep.simxFinish(clientID)
         sys.exit('Program ended')
 
+def wait_until_simulator_started(clientID):
+    while True:
+        try:
+            if vrep.simxStartSimulation(clientID, vrep.simx_opmode_oneshot_wait) == vrep.simx_return_ok:
+                break
+        except KeyboardInterrupt:
+            sys.exit('Program Ended')
+
