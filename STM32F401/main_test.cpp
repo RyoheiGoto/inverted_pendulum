@@ -24,8 +24,8 @@ int main()
         wait(0.5);
     }
 #else
-    maxon_r.period_ms(10);
-    maxon_l.period_ms(10);
+    maxon_r.period_us(100);
+    maxon_l.period_us(100);
     maxon_sd.write(1.0);
     
     while(1){
