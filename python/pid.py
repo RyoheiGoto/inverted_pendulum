@@ -55,7 +55,7 @@ if __name__ == '__main__':
     res, Potentiometer = vrep.simxGetObjectHandle(clientID, "Potentiometer", vrep.simx_opmode_oneshot_wait)
     error_check(clientID, res)
 
-    vrep.simxSetJointForce(clientID, JointDynamic, 4.8, vrep.simx_opmode_oneshot)
+    vrep.simxSetJointForce(clientID, JointDynamic, 0.384, vrep.simx_opmode_oneshot)
 
     while True:
         res, theta = vrep.simxGetJointPosition(clientID, Potentiometer, vrep.simx_opmode_oneshot)
