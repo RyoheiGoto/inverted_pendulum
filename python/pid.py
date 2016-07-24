@@ -6,9 +6,9 @@ import math
 
 class PID(object):
     def __init__(self):
-        self._kp = 790.0
-        self._ki = 1.0
-        self._kd = 3.0
+        self._kp = 400.0
+        self._ki = 10.0
+        self._kd = 40.0
         
         self._target_theta = 0.0
         self._sampling_time = 0.01
@@ -33,10 +33,10 @@ class PID(object):
         
         duty_ratio = theta * self._kp + self._thetai * self._ki + dtheta * self._kd
         
-        if duty_ratio > 1:
-            duty_ratio = 1.0
-        elif duty_ratio < -1:
-            duty_ratio = -1.0
+        if duty_ratio > 100.0:
+            duty_ratio = 100.0
+        elif duty_ratio < -100.0:
+            duty_ratio = -100.0
         
         return -duty_ratio
 
