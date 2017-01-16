@@ -1,1 +1,3 @@
-# inverted_pendulum
+# Inverted Pendulum
+* Simulator on Vrep
+* mbed src
