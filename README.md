@@ -1,3 +1,3 @@
 # Inverted Pendulum
 * Simulator on Vrep
-* mbed src
+* mbed src for real machine
